@@ -30,7 +30,9 @@
 	isOpen = false;
     }
     else{
-      $("#dialog").dialog({width: window.innerWidth});
+      var width = window.innerWidth;
+      if(width > 650){ width = 650; }
+      $("#dialog").dialog({width: width});
       $( "#dialog" ).dialog( "open" );
     isOpen = true;
     }
@@ -49,40 +51,15 @@
         </form>
   </div>
   <div id="dialog" title="Keyboard">
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
-	<button id=1 value=a class=button></button>
+	<div class="keyboard">
+	<?php
+	    $i = 0;
+	    	while($i < 40){
+		   echo "<button id=$i value=a class=button></button>";
+		   $i++;
+	    	}
+	?>
+	</div>
   </div>
  
   <button id="opener">Open Dialog</button>

@@ -29,6 +29,12 @@ input[type = "text"]{
 	width:30px;
 	height:30px;
 	border:1px #ccc solid;
+	margin:5px;
+}
+
+.keyboard{
+	width:inherit;
+	margin:auto;
 }
 
 .search-textbox{
