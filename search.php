@@ -55,7 +55,7 @@
 	<?php
 	    $i = 0;
 	    	while($i < 40){
-		   echo "<button id=$i value=a class=button></button>";
+		   echo "<button id=$i class=button>a</button>";
 		   $i++;
 	    	}
 	?>
