@@ -25,9 +25,9 @@ input[type = "text"]{
 	text-indent:10px;
 }
 
-.button{
-	width:30px;
-	height:30px;
+.keyboard-button{
+	width:10%;
+	height:35px;
 	border:1px #ccc solid;
 	margin:5px;
 }

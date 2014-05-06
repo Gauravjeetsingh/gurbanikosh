@@ -1,50 +1,33 @@
 <?php
 	include 'connect.php';
 	include 'portable-utf8.php';
+	include 'keyboard.php';
 ?>
 
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
-  var isOpen = false;
-  $(function() {
-    $( "#dialog" ).dialog({
-      autoOpen: false,
-      resizable: false,
-      position: { my: "top top", at: "right center" },
-      show: {
-        effect: "blind",
-        duration: 500
-      },
-      hide: {
-        effect: "fadeOut",
-        duration: 500
-      }
-    });
- 
-    $( "#opener" ).click(function() {
-    if(isOpen){
-	$("#dialog").dialog("close");
-	isOpen = false;
-    }
-    else{
-      var width = window.innerWidth;
-      if(width > 650){ width = 650; }
-      $("#dialog").dialog({width: width});
-      $( "#dialog" ).dialog( "open" );
-    isOpen = true;
-    }
-    });
+<!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+  google.load("elements", "1", {
+  packages: "transliterate"
   });
-  </script> 
+  var control;
+  function roman2gur() {
+  var options = {
+      sourceLanguage: google.elements.transliteration.LanguageCode.ENGLISH,         
+      destinationLanguage: [google.elements.transliteration.LanguageCode.PUNJABI],
+      shortcutKey: 'ctrl+g',
+      transliterationEnabled: true
+  };
+
+</script>-->
+
+
 
   <link rel=stylesheet href=css/form.css type=text/css>
 
   <div class = "form search-form">
         <form action="" name="searchForm" method="get">
-            <input name="searchQuery" type="text" class="search-textbox" placeholder="Type to search" required>
+            <input name="searchQuery" id="inputbox" type="text" class="search-textbox" placeholder="Type to search" required>
 		<div class="circle">
             <input type="submit" name="submit" value="" class="search-btn">
 		</div>
@@ -53,16 +36,23 @@
   <div id="dialog" title="Keyboard">
 	<div class="keyboard">
 	<?php
-	    $i = 0;
-	    	while($i < 40){
-		   echo "<button id=$i class=button>a</button>";
-		   $i++;
-	    	}
+	    keyboard();
 	?>
 	</div>
   </div>
  
   <button id="opener">Open Dialog</button>
+  <script>
+ inputBox = $('.search-textbox');
+
+
+ $('.keyboard-button').click(function(){
+   var inputString = inputBox.val();
+   var buttonPressed = $(this).html();
+   inputString += buttonPressed;
+   inputBox.val(inputString);
+});
+  </script>
 <?php
 	
 	    function meaningSearch($queryString, $connect)
